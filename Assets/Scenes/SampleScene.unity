@@ -226,6 +226,7 @@ MonoBehaviour:
   Actions:
   - {fileID: 11400000, guid: 2fbd101bcabcd234d98dddbbb894879e, type: 2}
   - {fileID: 11400000, guid: 07918c0f84a0f7d45871318602858d26, type: 2}
+  - {fileID: 11400000, guid: 7644954a7f2781447a5a50c55adc3f98, type: 2}
   InputController: {fileID: 1432383372}
 --- !u!114 &122797253
 MonoBehaviour:
