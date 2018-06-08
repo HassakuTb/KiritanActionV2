@@ -27,6 +27,8 @@ namespace ConcleteAction {
                     this.Agent.RigidbodyCache.velocity = new Vector2(Velocity, velocity.y);
                 }
             }
+
+            this.Agent.DashStatus.OnDash();
         }
     }
 

@@ -14,7 +14,7 @@ namespace ConcleteAction {
         public float IgnoreFrames;
 
         protected override bool Trigger() {
-            return this.Agent.GroundFrameCount > IgnoreFrames;
+            return this.Agent.GroundFrameCount > IgnoreFrames && !this.Agent.DashStatus.IsDashing;
         }
 
         protected override void OnTrigger() {

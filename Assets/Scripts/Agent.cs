@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(JudgeGround))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(JumpStatus))]
+[RequireComponent(typeof(DashStatus))]
+[RequireComponent(typeof(Animator))]
 public class Agent : MonoBehaviour {
 
     /// <summary>
@@ -26,14 +28,18 @@ public class Agent : MonoBehaviour {
     private JudgeGround judgeGround;
 
     public JumpStatus JumpStatus { get; private set; }
+    public DashStatus DashStatus { get; private set; }
+    public Animator Animator { get; private set; }
 
     // Use this for initialization
     void Awake() {
         this.judgeGround = GetComponent<JudgeGround>();
         this.RigidbodyCache = GetComponent<Rigidbody2D>();
         this.JumpStatus = GetComponent<JumpStatus>();
+        this.DashStatus = GetComponent<DashStatus>();
+        this.Animator = GetComponent<Animator>();
 
-        foreach(Action action in this.Actions){
+        foreach (Action action in this.Actions){
             action.Init(this);
         }
     }
@@ -47,7 +53,10 @@ public class Agent : MonoBehaviour {
         }
 
         //  Animatorへの状態通知
-
+        this.Animator.SetBool("IsDashing", this.DashStatus.IsDashing);
+        this.Animator.SetBool("IsGround", this.IsGround);
+        this.Animator.SetFloat("VelocityY", this.RigidbodyCache.velocity.y);
+        this.Animator.SetFloat("HorizontalInputAbs", Mathf.Abs(Input.GetAxis("Horizontal")));
     }
 
     private void FixedUpdate() {
