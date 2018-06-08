@@ -17,6 +17,7 @@ namespace ConcleteAction {
 
         protected override bool Trigger() {
             if (!this.Agent.IsGround) return false;
+            if (this.Agent.DashStatus.IsDashing) return false;
             if (Input.GetAxis("Horizontal") < -0.1) {
                 this.direction = Agent.AgentDirection.Left;
                 return true;
