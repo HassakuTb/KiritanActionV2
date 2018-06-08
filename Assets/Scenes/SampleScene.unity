@@ -228,6 +228,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07918c0f84a0f7d45871318602858d26, type: 2}
   - {fileID: 11400000, guid: 7644954a7f2781447a5a50c55adc3f98, type: 2}
   - {fileID: 11400000, guid: f8098236b7a3b4947a5d6e23c6bd7397, type: 2}
+  - {fileID: 11400000, guid: 097eb121d2764874a8eeb83cc11809d8, type: 2}
   InputController: {fileID: 1432383372}
   GroundFrameCount: 0
 --- !u!114 &122797253
