@@ -36,7 +36,7 @@ public class JudgeGround : MonoBehaviour {
     /// </summary>
     public RaycastHit2D RaycastHit { get; private set; }
 
-    protected void FixedUpdate() {
+    protected void Update() {
         //  BoxColliderの真下に短くぶっといRaycast(BoxCast)を撃つ
         //  衝突すれば接地中
         //  すでに地面にめり込んでいる場合は判定されないので少し上から撃つ

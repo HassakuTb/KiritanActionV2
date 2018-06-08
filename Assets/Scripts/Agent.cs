@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(JudgeGround))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(JumpStatus))]
 public class Agent : MonoBehaviour {
 
     /// <summary>
@@ -24,10 +25,13 @@ public class Agent : MonoBehaviour {
 
     private JudgeGround judgeGround;
 
+    public JumpStatus JumpStatus { get; private set; }
+
     // Use this for initialization
     void Awake() {
         this.judgeGround = GetComponent<JudgeGround>();
         this.RigidbodyCache = GetComponent<Rigidbody2D>();
+        this.JumpStatus = GetComponent<JumpStatus>();
 
         foreach(Action action in this.Actions){
             action.Init(this);

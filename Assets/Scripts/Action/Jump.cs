@@ -17,6 +17,8 @@ namespace ConcleteAction {
 
         protected override void OnTrigger() {
             this.Agent.RigidbodyCache.velocity = this.Agent.RigidbodyCache.velocity + Vector2.up * Speed;
+
+            this.Agent.JumpStatus.OnJump();
         }
     }
 
