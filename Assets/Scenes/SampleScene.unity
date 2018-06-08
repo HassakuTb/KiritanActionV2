@@ -227,7 +227,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2fbd101bcabcd234d98dddbbb894879e, type: 2}
   - {fileID: 11400000, guid: 07918c0f84a0f7d45871318602858d26, type: 2}
   - {fileID: 11400000, guid: 7644954a7f2781447a5a50c55adc3f98, type: 2}
+  - {fileID: 11400000, guid: f8098236b7a3b4947a5d6e23c6bd7397, type: 2}
   InputController: {fileID: 1432383372}
+  GroundFrameCount: 0
 --- !u!114 &122797253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +255,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 122797247}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 89b75fc3083254043a0d52b711264992, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -374,7 +376,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 369260719}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 89b75fc3083254043a0d52b711264992, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

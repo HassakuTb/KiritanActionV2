@@ -22,6 +22,8 @@ public class Agent : MonoBehaviour {
 
     public FixedInputController InputController;
 
+    public int GroundFrameCount = 0;
+
     private JudgeGround judgeGround;
 
     // Use this for initialization
@@ -42,6 +44,10 @@ public class Agent : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        //  接地フレーム数を計算
+        if (this.judgeGround.IsGround) this.GroundFrameCount++;
+        else this.GroundFrameCount = 0;
+
         //  アクション処理
         foreach(Action action in this.Actions) {
             if (action.Trigger()) action.OnTrigger();

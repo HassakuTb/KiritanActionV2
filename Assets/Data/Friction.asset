@@ -8,7 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc7c7e8d5a086db499f8ae1db6321234, type: 3}
-  m_Name: Jump
+  m_Script: {fileID: 11500000, guid: 678ad923e457eab498c170098950490e, type: 3}
+  m_Name: Friction
   m_EditorClassIdentifier: 
-  Speed: 6
+  Accel: 0.3
+  IgnoreFrames: 10
