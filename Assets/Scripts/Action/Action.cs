@@ -3,16 +3,26 @@ using System.Collections;
 
 public abstract class Action : ScriptableObject {
 
+    private bool isTriggeredAtUpdate;
+
     protected Agent Agent { get; private set; }
 
-    protected FixedInputController FixedInputController { get; private set; }
-
-    public virtual void Init(Agent agent, FixedInputController inputController) {
+    public virtual void Init(Agent agent) {
         this.Agent = agent;
-        this.FixedInputController = inputController;
     }
 
-    public abstract bool Trigger();
+    public void OnUpdate() {
+        isTriggeredAtUpdate = Trigger();
+    }
 
-    public abstract void OnTrigger();
+    public void OnFixedUpdate() {
+        if(isTriggeredAtUpdate) {
+            OnTrigger();
+            isTriggeredAtUpdate = false;
+        }
+    }
+
+    protected abstract bool Trigger();
+
+    protected abstract void OnTrigger();
 }

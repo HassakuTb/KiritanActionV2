@@ -11,11 +11,11 @@ namespace ConcleteAction {
 
         public float Speed;
 
-        public override bool Trigger() {
-            return this.Agent.IsGround && this.FixedInputController.InputButtonTable["Jump"].PressedFrame == 1;
+        protected override bool Trigger() {
+            return this.Agent.IsGround && Input.GetButtonDown("Jump");
         }
 
-        public override void OnTrigger() {
+        protected override void OnTrigger() {
             this.Agent.RigidbodyCache.velocity = this.Agent.RigidbodyCache.velocity + Vector2.up * Speed;
         }
     }

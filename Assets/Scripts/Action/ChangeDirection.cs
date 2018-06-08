@@ -9,16 +9,22 @@ namespace ConcleteAction {
     [CreateAssetMenu(fileName = "ChangeDirection", menuName = "ScriptableObject/Action/ChangeDirection")]
     public class ChangeDirection : Action {
 
-        public override bool Trigger() {
-            if (this.FixedInputController.InputButtonTable["Left"].PressedFrame > 0) return true;
-            if (this.FixedInputController.InputButtonTable["Right"].PressedFrame > 0) return true;
-            return false;
+        private Agent.AgentDirection direction;
+
+        protected override void OnTrigger() {
+            this.Agent.SetDirection(this.direction);
         }
 
-        public override void OnTrigger() {
-            this.Agent.SetDirection(
-                this.FixedInputController.InputButtonTable["Left"].PressedFrame > 0 ?
-                Agent.AgentDirection.Left : Agent.AgentDirection.Right);
+        protected override bool Trigger() {
+            if (Input.GetAxis("Horizontal") < -0.1) {
+                this.direction = Agent.AgentDirection.Left;
+                return true;
+            }
+            if (Input.GetAxis("Horizontal") > 0.1) {
+                this.direction = Agent.AgentDirection.Right;
+                return true;
+            }
+            return false;
         }
     }
 

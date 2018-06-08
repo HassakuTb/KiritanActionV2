@@ -9,19 +9,28 @@ namespace ConcleteAction {
     [CreateAssetMenu(fileName = "Walk", menuName = "ScriptableObject/Action/Walk")]
     public class Walk : Action {
 
+        private Agent.AgentDirection direction;
+
         public float Accel;
 
         public float VelocityLimit;
 
-        public override bool Trigger() {
-            if (this.Agent.IsGround && this.FixedInputController.InputButtonTable["Left"].PressedFrame > 0) return true;
-            if (this.Agent.IsGround && this.FixedInputController.InputButtonTable["Right"].PressedFrame > 0) return true;
+        protected override bool Trigger() {
+            if (!this.Agent.IsGround) return false;
+            if (Input.GetAxis("Horizontal") < -0.1) {
+                this.direction = Agent.AgentDirection.Left;
+                return true;
+            }
+            if (Input.GetAxis("Horizontal") > 0.1) {
+                this.direction = Agent.AgentDirection.Right;
+                return true;
+            }
             return false;
         }
 
-        public override void OnTrigger() {
+        protected override void OnTrigger() {
             Vector2 velocity = this.Agent.RigidbodyCache.velocity;
-            if(this.FixedInputController.InputButtonTable["Left"].PressedFrame > 0) {
+            if(this.direction == Agent.AgentDirection.Left) {
                 if (velocity.x > -this.VelocityLimit) {
                     this.Agent.RigidbodyCache.velocity = new Vector2(velocity.x - this.Accel, velocity.y);
                     if(this.Agent.RigidbodyCache.velocity.x < -VelocityLimit) {

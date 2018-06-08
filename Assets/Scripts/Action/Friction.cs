@@ -13,11 +13,11 @@ namespace ConcleteAction {
 
         public float IgnoreFrames;
 
-        public override bool Trigger() {
+        protected override bool Trigger() {
             return this.Agent.GroundFrameCount > IgnoreFrames;
         }
 
-        public override void OnTrigger() {
+        protected override void OnTrigger() {
             Vector2 velocity = this.Agent.RigidbodyCache.velocity;
 
             if(velocity.x > 0) {

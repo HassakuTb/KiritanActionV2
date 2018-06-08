@@ -11,11 +11,11 @@ namespace ConcleteAction {
 
         public float Velocity;
 
-        public override bool Trigger() {
-            return this.Agent.IsGround && this.FixedInputController.InputButtonTable["Dash"].PressedFrame > 0;
+        protected override bool Trigger() {
+            return this.Agent.IsGround && Input.GetButtonDown("Dash");
         }
 
-        public override void OnTrigger() {
+        protected override void OnTrigger() {
             Vector2 velocity = this.Agent.RigidbodyCache.velocity;
             if(this.Agent.Direction == Agent.AgentDirection.Left) {
                 if (velocity.x > -Velocity) {

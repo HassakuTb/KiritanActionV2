@@ -20,8 +20,6 @@ public class Agent : MonoBehaviour {
 
     public Action[] Actions;
 
-    public FixedInputController InputController;
-
     public int GroundFrameCount = 0;
 
     private JudgeGround judgeGround;
@@ -32,12 +30,17 @@ public class Agent : MonoBehaviour {
         this.RigidbodyCache = GetComponent<Rigidbody2D>();
 
         foreach(Action action in this.Actions){
-            action.Init(this, InputController);
+            action.Init(this);
         }
     }
 
     // Update is called once per frame
     void Update() {
+
+        //  アクション処理
+        foreach (Action action in this.Actions) {
+            action.OnUpdate();
+        }
 
         //  Animatorへの状態通知
 
@@ -50,7 +53,7 @@ public class Agent : MonoBehaviour {
 
         //  アクション処理
         foreach(Action action in this.Actions) {
-            if (action.Trigger()) action.OnTrigger();
+            action.OnFixedUpdate();
         }
     }
 
