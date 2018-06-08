@@ -235,6 +235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5ba060c1c9134488aa2cb3b7299acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Direction: 1
+  Actions:
+  - {fileID: 11400000, guid: 2fbd101bcabcd234d98dddbbb894879e, type: 2}
+  InputController: {fileID: 1432383372}
 --- !u!114 &122797253
 MonoBehaviour:
   m_ObjectHideFlags: 0
