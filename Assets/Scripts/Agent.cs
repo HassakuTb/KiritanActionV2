@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(JudgeGround))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Agent : MonoBehaviour {
 
     /// <summary>
@@ -15,6 +16,8 @@ public class Agent : MonoBehaviour {
 
     public AgentDirection Direction = AgentDirection.Right;
 
+    public Rigidbody2D RigidbodyCache { get; private set; }
+
     public Action[] Actions;
 
     public FixedInputController InputController;
@@ -23,7 +26,8 @@ public class Agent : MonoBehaviour {
 
     // Use this for initialization
     void Awake() {
-        judgeGround = GetComponent<JudgeGround>();
+        this.judgeGround = GetComponent<JudgeGround>();
+        this.RigidbodyCache = GetComponent<Rigidbody2D>();
 
         foreach(Action action in this.Actions){
             action.Init(this, InputController);
