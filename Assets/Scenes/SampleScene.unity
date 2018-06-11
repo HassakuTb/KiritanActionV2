@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDashing: 0
-  DashFrameLimit: 20
+  DashFrameLimit: 10
   DashingFrames: 0
 --- !u!1 &369260719
 GameObject:
