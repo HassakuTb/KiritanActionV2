@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
+using GameScene.Agents.Actions;
 
 namespace GameScene.Agents.AgentStatus {
 
     [RequireComponent(typeof(Agent))]
     public class DashStatus : MonoBehaviour {
 
-        public bool IsDashing = false;
+        public Dash DashReference;
 
-        public int DashFrameLimit;
+        public bool IsDashing = false;
 
         public int DashingFrames;
 
@@ -21,7 +22,7 @@ namespace GameScene.Agents.AgentStatus {
         void Update() {
             if (!this.IsDashing) return;
 
-            if (this.DashingFrames > this.DashFrameLimit) {
+            if (this.DashingFrames > this.DashReference.DashFrameLimit) {
                 this.IsDashing = false;
                 return;
             }

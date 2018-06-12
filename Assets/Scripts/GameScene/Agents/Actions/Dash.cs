@@ -9,6 +9,8 @@ namespace GameScene.Agents.Actions {
 
         public float Velocity;
 
+        public int DashFrameLimit;
+
         private bool isPressedHorizontal;
         Agent.AgentDirection direction;
 

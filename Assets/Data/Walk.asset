@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808c496a57a73ba49b9891c3a9a39092, type: 3}
   m_Name: Walk
   m_EditorClassIdentifier: 
-  Accel: 2.5
+  Accel: 5
   VelocityLimit: 5

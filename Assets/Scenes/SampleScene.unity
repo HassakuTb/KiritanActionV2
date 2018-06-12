@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 122797255}
   - component: {fileID: 122797248}
   - component: {fileID: 122797257}
+  - component: {fileID: 122797258}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -322,6 +323,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07918c0f84a0f7d45871318602858d26, type: 2}
   - {fileID: 11400000, guid: db8f69c41c064414690cdf7eb3df1f98, type: 2}
   - {fileID: 11400000, guid: 7644954a7f2781447a5a50c55adc3f98, type: 2}
+  - {fileID: 11400000, guid: 829e2cc313f0b8d46acc33f2a29cbc8c, type: 2}
   GroundFrameCount: 0
 --- !u!61 &122797254
 BoxCollider2D:
@@ -404,8 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400e55424577b6649ba19ce482cd66a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DashReference: {fileID: 11400000, guid: 097eb121d2764874a8eeb83cc11809d8, type: 2}
   IsDashing: 0
-  DashFrameLimit: 10
   DashingFrames: 0
 --- !u!114 &122797257
 MonoBehaviour:
@@ -418,6 +420,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a2aaf422488c947af8260b0d557a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &122797258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 122797247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c38c7666f250f144b1c63f78ccdc08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinimumSpeed: 5
 --- !u!1 &206897127
 GameObject:
   m_ObjectHideFlags: 0
