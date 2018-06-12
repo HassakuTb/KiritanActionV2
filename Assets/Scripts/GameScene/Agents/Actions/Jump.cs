@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace ConcleteAction {
+namespace GameScene.Agents.Actions {
 
     /// <summary>
     /// ジャンプ
@@ -21,5 +20,4 @@ namespace ConcleteAction {
             this.Agent.JumpStatus.OnJump();
         }
     }
-
 }

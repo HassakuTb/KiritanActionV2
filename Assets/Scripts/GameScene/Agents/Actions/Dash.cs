@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace ConcleteAction {
-
+namespace GameScene.Agents.Actions {
     /// <summary>
     /// 地上ダッシュ
     /// </summary>
@@ -15,12 +13,12 @@ namespace ConcleteAction {
         Agent.AgentDirection direction;
 
         protected override bool Trigger() {
-            if(this.Agent.IsGround && Input.GetButtonDown("Dash")) {
-                if(Input.GetAxis("Horizontal") > 0.1) {
+            if (this.Agent.IsGround && Input.GetButtonDown("Dash")) {
+                if (Input.GetAxis("Horizontal") > 0.1) {
                     isPressedHorizontal = true;
                     direction = Agent.AgentDirection.Right;
                 }
-                else if(Input.GetAxis("Horizontal") < -0.1) {
+                else if (Input.GetAxis("Horizontal") < -0.1) {
                     isPressedHorizontal = true;
                     direction = Agent.AgentDirection.Left;
                 }
@@ -53,5 +51,4 @@ namespace ConcleteAction {
             this.Agent.DashStatus.OnDash();
         }
     }
-
 }

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace ConcleteAction {
+namespace GameScene.Agents.Actions {
 
     /// <summary>
     /// ジャンプ後にジャンプキーを放すとその時点から落下を開始するやつ
@@ -23,5 +22,4 @@ namespace ConcleteAction {
             this.Agent.RigidbodyCache.velocity = new Vector2(this.Agent.RigidbodyCache.velocity.x, 0);
         }
     }
-
 }

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace ConcleteAction {
+namespace GameScene.Agents.Actions {
 
     /// <summary>
     /// 方向転換
@@ -28,5 +27,4 @@ namespace ConcleteAction {
             return false;
         }
     }
-
 }

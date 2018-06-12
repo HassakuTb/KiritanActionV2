@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using GameScene.Agents.AgentStatus;
 
-namespace GameScene.Agent {
+namespace GameScene.Agents {
     [RequireComponent(typeof(SpriteTrailEmitter))]
     public class TrailController : MonoBehaviour{
 

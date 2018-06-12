@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-namespace ConcleteAction {
-
+namespace GameScene.Agents.Actions {
     /// <summary>
     /// 空中移動制御
     /// </summary>
@@ -30,10 +28,10 @@ namespace ConcleteAction {
 
         protected override void OnTrigger() {
             Vector2 velocity = this.Agent.RigidbodyCache.velocity;
-            if(this.direction == Agent.AgentDirection.Left) {
+            if (this.direction == Agent.AgentDirection.Left) {
                 if (velocity.x > -this.VelocityLimit) {
                     this.Agent.RigidbodyCache.velocity = new Vector2(velocity.x - this.Accel, velocity.y);
-                    if(this.Agent.RigidbodyCache.velocity.x < -VelocityLimit) {
+                    if (this.Agent.RigidbodyCache.velocity.x < -VelocityLimit) {
                         this.Agent.RigidbodyCache.velocity = new Vector2(-VelocityLimit, velocity.y);
                     }
                 }
@@ -48,5 +46,4 @@ namespace ConcleteAction {
             }
         }
     }
-
 }
