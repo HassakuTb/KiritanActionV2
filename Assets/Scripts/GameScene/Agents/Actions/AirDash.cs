@@ -20,13 +20,13 @@ namespace GameScene.Agents.Actions {
         }
 
         protected override void OnTrigger() {
-            Vector2 directionVector = this.inputDirection.ToVector2();
-            if (inputDirection == EightDirection.None) {
-                directionVector = new Vector2((float)this.Agent.Direction, 0);
+            if (this.inputDirection == EightDirection.None) {
+                this.inputDirection = this.Agent.Direction == Agent.AgentDirection.Right ? EightDirection.Right : EightDirection.Left;
             }
+            Vector2 directionVector = this.inputDirection.ToVector2();
             this.Agent.RigidbodyCache.velocity = directionVector * DashReference.Velocity;
 
-            this.Agent.DashStatus.OnDash();
+            this.Agent.DashStatus.OnAirDash(this.inputDirection);
         }
     }
 }

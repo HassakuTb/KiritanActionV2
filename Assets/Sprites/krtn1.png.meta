@@ -13,6 +13,12 @@ TextureImporter:
     21300016: krtn_spin2
     21300018: krtn_spin3
     21300020: krtn_spin4
+    21300022: krtn1_0
+    21300024: krtn1_1
+    21300026: krtn1_2
+    21300028: krtn1_3
+    21300030: krtn1_4
+    21300032: krtn1_5
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -308,6 +314,126 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5283a6c1e13cc2c43b594a88073f49d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krtn1_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 47
+        width: 12
+        height: 17
+      alignment: 9
+      pivot: {x: 0.65, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac55ed6768ac38c42afa8537925aa4b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krtn1_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 29
+        width: 12
+        height: 18
+      alignment: 9
+      pivot: {x: 0.6, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130557919c68dec4f9be2f2cefdeb899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krtn1_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 11
+        width: 13
+        height: 18
+      alignment: 9
+      pivot: {x: 0.65, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160a8a9e746d47844b721fb2be1e04dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krtn1_3
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 48
+        width: 14
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31964da6f08e07c4b8ef947083b95fff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krtn1_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 32
+        width: 15
+        height: 16
+      alignment: 9
+      pivot: {x: 0.8, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3d7b57dffe23e4399083b920257a96
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krtn1_5
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 16
+        width: 13
+        height: 16
+      alignment: 9
+      pivot: {x: 0.65, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5d5eaae5e2dde347ab271059d831fce
       vertices: []
       indices: 
       edges: []

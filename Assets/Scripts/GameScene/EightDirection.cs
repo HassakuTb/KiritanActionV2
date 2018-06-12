@@ -2,15 +2,15 @@
 
 namespace GameScene {
     public enum EightDirection {
-        None,
-        Up,
-        UpRight,
-        Right,
-        DownRight,
-        Down,
-        DownLeft,
-        Left,
-        UpLeft,
+        None = 0,
+        Up = 1,
+        UpRight = 2,
+        Right = 3,
+        DownRight = 4,
+        Down = 5,
+        DownLeft = 6,
+        Left = 7,
+        UpLeft = 8,
     }
 
     public static class EightDirectionExtensions {
