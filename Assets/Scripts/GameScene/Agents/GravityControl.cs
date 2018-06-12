@@ -9,13 +9,17 @@ namespace GameScene.Agents {
         private DashStatus dashStatus;
         private Rigidbody2D rigidbody;
 
+        private float defaultGravityScale;
+
         private void Awake() {
             this.dashStatus = GetComponent<DashStatus>();
             this.rigidbody = GetComponent<Rigidbody2D>();
+
+            this.defaultGravityScale = rigidbody.gravityScale;
         }
 
         private void Update() {
-            this.rigidbody.bodyType = dashStatus.IsDashing ? RigidbodyType2D.Kinematic : RigidbodyType2D.Dynamic;
+            this.rigidbody.gravityScale = dashStatus.IsDashing ? 0 : this.defaultGravityScale;
         }
     }
 }
