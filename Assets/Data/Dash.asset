@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672de5f6bed845245b3519b5fde5c09e, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  Velocity: 11
+  Velocity: 16

@@ -21,11 +21,6 @@ namespace GameScene.Agents.AgentStatus {
         void Update() {
             if (!this.IsDashing) return;
 
-            if (!this.agent.IsGround) {
-                this.IsDashing = false;
-                return;
-            }
-
             if (this.DashingFrames > this.DashFrameLimit) {
                 this.IsDashing = false;
                 return;
