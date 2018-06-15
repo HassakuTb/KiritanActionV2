@@ -400,7 +400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DashReference: {fileID: 592275670}
   IsDashing: 0
-  IsAirial: 0
   Direction: 0
   DashingFrames: 0
 --- !u!114 &122797257
@@ -781,7 +780,6 @@ GameObject:
   m_Component:
   - component: {fileID: 592275665}
   - component: {fileID: 592275674}
-  - component: {fileID: 592275673}
   - component: {fileID: 592275672}
   - component: {fileID: 592275671}
   - component: {fileID: 592275670}
@@ -858,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672de5f6bed845245b3519b5fde5c09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 15
+  Velocity: 25
   DashFrameLimit: 20
 --- !u!114 &592275671
 MonoBehaviour:
@@ -884,18 +882,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Accel: 5
   VelocityLimit: 5
---- !u!114 &592275673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 592275664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b5bc31203be47c4889e10f1817e26da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DashReference: {fileID: 592275670}
 --- !u!114 &592275674
 MonoBehaviour:
   m_ObjectHideFlags: 0

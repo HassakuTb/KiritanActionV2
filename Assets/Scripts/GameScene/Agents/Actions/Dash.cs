@@ -10,46 +10,28 @@ namespace GameScene.Agents.Actions {
 
         public int DashFrameLimit;
 
-        private bool isPressedHorizontal;
-        Agent.AgentDirection direction;
+        private EightDirection inputDirection;
 
         protected override bool Trigger() {
-            if (this.Agent.IsGround && Input.GetButtonDown("Dash")) {
-                if (Input.GetAxis("Horizontal") > 0.1) {
-                    isPressedHorizontal = true;
-                    direction = Agent.AgentDirection.Right;
-                }
-                else if (Input.GetAxis("Horizontal") < -0.1) {
-                    isPressedHorizontal = true;
-                    direction = Agent.AgentDirection.Left;
-                }
-                else {
-                    isPressedHorizontal = false;
-                }
+            if (Input.GetButtonDown("Dash")) {
+                this.inputDirection = EightDirectionExtensions.InputToDirection(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
                 return true;
             }
             return false;
         }
 
         protected override void OnTrigger() {
-            Vector2 velocity = this.Agent.RigidbodyCache.velocity;
-            Agent.AgentDirection actualDirection = this.Agent.Direction;
-            if (isPressedHorizontal) actualDirection = direction;
-
-
-            if (actualDirection == Agent.AgentDirection.Left) {
-                if (velocity.x > -Velocity) {
-                    this.Agent.RigidbodyCache.velocity = new Vector2(-Velocity, velocity.y);
-                }
+            if (this.inputDirection == EightDirection.None) {
+                this.inputDirection = this.Agent.Direction == Agent.AgentDirection.Right ? EightDirection.Right : EightDirection.Left;
             }
-            else {
-                if (velocity.x < Velocity) {
-                    this.Agent.RigidbodyCache.velocity = new Vector2(Velocity, velocity.y);
-                }
+            //  地上で下方向ダッシュはできなくする
+            if(this.inputDirection == EightDirection.Down || this.inputDirection == EightDirection.DownLeft || this.inputDirection == EightDirection.DownRight) {
+                if (this.Agent.IsGround) return;
             }
-            this.Agent.SetDirection(actualDirection);
+            Vector2 directionVector = this.inputDirection.ToVector2();
+            this.Agent.RigidbodyCache.velocity = directionVector * this.Velocity;
 
-            this.Agent.DashStatus.OnDash();
+            this.Agent.DashStatus.OnDash(this.inputDirection);
         }
     }
 }

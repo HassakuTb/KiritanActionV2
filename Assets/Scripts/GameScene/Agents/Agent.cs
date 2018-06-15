@@ -48,9 +48,7 @@ namespace GameScene.Agents {
             this.Animator.SetBool("IsGround", this.IsGround);
             this.Animator.SetFloat("VelocityY", this.RigidbodyCache.velocity.y);
             this.Animator.SetFloat("HorizontalInputAbs", Mathf.Abs(Input.GetAxis("Horizontal")));
-            this.Animator.SetBool("IsAirialDash", this.DashStatus.IsAirial);
             this.Animator.SetInteger("DashingDirection", (int)this.DashStatus.Direction);
-            //  this.Animator.SetBool("IsJumping", this.JumpStatus.IsJumping);
         }
 
         private void FixedUpdate() {

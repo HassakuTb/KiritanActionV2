@@ -9,7 +9,6 @@ namespace GameScene.Agents.AgentStatus {
         public Dash DashReference;
 
         public bool IsDashing = false;
-        public bool IsAirial = false;
         public EightDirection Direction = EightDirection.None;
 
         public int DashingFrames;
@@ -32,16 +31,9 @@ namespace GameScene.Agents.AgentStatus {
             this.DashingFrames++;
         }
 
-        public void OnDash() {
+        public void OnDash(EightDirection direction) {
             this.IsDashing = true;
             this.DashingFrames = 0;
-            this.IsAirial = false;
-        }
-
-        public void OnAirDash(EightDirection direction) {
-            this.IsDashing = true;
-            this.DashingFrames = 0;
-            this.IsAirial = true;
             this.Direction = direction;
         }
     }
