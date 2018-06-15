@@ -5,7 +5,7 @@ namespace GameScene.Agents.Actions {
     /// 空中ダッシュ
     /// </summary>
     [CreateAssetMenu(fileName = "AirDash", menuName = "ScriptableObject/Action/AirDash")]
-    class AirDash : Action {
+    public class AirDash : Action {
         
         public Dash DashReference;
 

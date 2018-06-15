@@ -23,8 +23,6 @@ namespace GameScene.Agents {
 
         public Rigidbody2D RigidbodyCache { get; private set; }
 
-        public Action[] Actions;
-
         public int GroundFrameCount = 0;
 
         private JudgeGround judgeGround;
@@ -40,19 +38,10 @@ namespace GameScene.Agents {
             this.JumpStatus = GetComponent<JumpStatus>();
             this.DashStatus = GetComponent<DashStatus>();
             this.Animator = GetComponent<Animator>();
-
-            foreach (Action action in this.Actions) {
-                action.Init(this);
-            }
         }
 
         // Update is called once per frame
         void Update() {
-
-            //  アクション処理
-            foreach (Action action in this.Actions) {
-                action.OnUpdate();
-            }
 
             //  Animatorへの状態通知
             this.Animator.SetBool("IsDashing", this.DashStatus.IsDashing);
@@ -61,18 +50,13 @@ namespace GameScene.Agents {
             this.Animator.SetFloat("HorizontalInputAbs", Mathf.Abs(Input.GetAxis("Horizontal")));
             this.Animator.SetBool("IsAirialDash", this.DashStatus.IsAirial);
             this.Animator.SetInteger("DashingDirection", (int)this.DashStatus.Direction);
-            this.Animator.SetBool("IsJumping", this.JumpStatus.IsJumping);
+            //  this.Animator.SetBool("IsJumping", this.JumpStatus.IsJumping);
         }
 
         private void FixedUpdate() {
             //  接地フレーム数を計算
             if (this.judgeGround.IsGround) this.GroundFrameCount++;
             else this.GroundFrameCount = 0;
-
-            //  アクション処理
-            foreach (Action action in this.Actions) {
-                action.OnFixedUpdate();
-            }
         }
 
         public bool IsGround {

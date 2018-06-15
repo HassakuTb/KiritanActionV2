@@ -1,25 +1,27 @@
 ﻿using UnityEngine;
+using GameScene.Referers;
 
 namespace GameScene.Agents.Actions {
 
-    public abstract class Action : ScriptableObject {
+    [RequireComponent(typeof(AgentReferer))]
+    public abstract class Action : MonoBehaviour {
 
         private bool isTriggeredAtUpdate;
 
         protected Agent Agent { get; private set; }
 
-        public virtual void Init(Agent agent) {
-            this.Agent = agent;
+        private void Awake() {
+            this.Agent = GetComponent<AgentReferer>().agent;
         }
 
-        public void OnUpdate() {
-            isTriggeredAtUpdate = Trigger();
+        public void Update() {
+            this.isTriggeredAtUpdate = this.Trigger();
         }
 
-        public void OnFixedUpdate() {
-            if (isTriggeredAtUpdate) {
-                OnTrigger();
-                isTriggeredAtUpdate = false;
+        public void FixedUpdate() {
+            if (this.isTriggeredAtUpdate) {
+                this.OnTrigger();
+                this.isTriggeredAtUpdate = false;
             }
         }
 
