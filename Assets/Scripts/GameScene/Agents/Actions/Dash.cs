@@ -4,7 +4,6 @@ namespace GameScene.Agents.Actions {
     /// <summary>
     /// 地上ダッシュ
     /// </summary>
-    [CreateAssetMenu(fileName = "Dash", menuName = "ScriptableObject/Action/Dash")]
     public class Dash : Action {
 
         public float Velocity;

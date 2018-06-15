@@ -4,7 +4,6 @@ namespace GameScene.Agents.Actions {
     /// <summary>
     /// 摩擦による減速
     /// </summary>
-    [CreateAssetMenu(fileName = "Friction", menuName = "ScriptableObject/Action/Friction")]
     public class Friction : Action {
 
         public float Accel;

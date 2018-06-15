@@ -5,7 +5,6 @@ namespace GameScene.Agents.Actions {
     /// <summary>
     /// 地上移動
     /// </summary>
-    [CreateAssetMenu(fileName = "Walk", menuName = "ScriptableObject/Action/Walk")]
     public class Walk : Action {
 
         private Agent.AgentDirection direction;

@@ -5,7 +5,6 @@ namespace GameScene.Agents.Actions {
     /// <summary>
     /// ジャンプ
     /// </summary>
-    [CreateAssetMenu(fileName = "Jump", menuName = "ScriptableObject/Action/Jump")]
     public class Jump : Action {
 
         public float Speed;

@@ -4,7 +4,6 @@ namespace GameScene.Agents.Actions {
     /// <summary>
     /// 空中移動制御
     /// </summary>
-    [CreateAssetMenu(fileName = "AirMove", menuName = "ScriptableObject/Action/AirMove")]
     public class AirMove : Action {
 
         private Agent.AgentDirection direction;

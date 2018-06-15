@@ -5,7 +5,6 @@ namespace GameScene.Agents.Actions {
     /// <summary>
     /// ジャンプ後にジャンプキーを放すとその時点から落下を開始するやつ
     /// </summary>
-    [CreateAssetMenu(fileName = "JumpRelease", menuName = "ScriptableObject/Action/JumpRelease")]
     public class JumpRelease : Action {
 
         private Agent.AgentDirection direction;

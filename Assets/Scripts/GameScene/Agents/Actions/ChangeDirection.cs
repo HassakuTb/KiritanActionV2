@@ -5,7 +5,6 @@ namespace GameScene.Agents.Actions {
     /// <summary>
     /// 方向転換
     /// </summary>
-    [CreateAssetMenu(fileName = "ChangeDirection", menuName = "ScriptableObject/Action/ChangeDirection")]
     public class ChangeDirection : Action {
 
         private Agent.AgentDirection direction;
