@@ -776,7 +776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b0f1a908137e443b87cde6877369d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpReference: {fileID: 592275668}
 --- !u!114 &592275668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,9 +800,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672de5f6bed845245b3519b5fde5c09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 30
+  Speed: 20
   MinimumSpeed: 5
-  DashFrameLimit: 20
+  DashFrameLimit: 30
 --- !u!114 &592275671
 MonoBehaviour:
   m_ObjectHideFlags: 0

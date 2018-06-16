@@ -5,6 +5,7 @@ namespace GameScene.Agents.Actions {
     /// <summary>
     /// ジャンプ
     /// </summary>
+    [RequireComponent(typeof(Dash))]
     public class Jump : Action {
 
         public float Speed;
@@ -12,18 +13,26 @@ namespace GameScene.Agents.Actions {
 
         public bool IsJumping { get; private set; }
 
+        private Dash dash;
+
+        private new void Awake() {
+            base.Awake();
+            this.dash = GetComponent<Dash>();
+        }
+
         protected override bool Trigger() {
             return this.Agent.IsGround && Input.GetButtonDown("Jump");
         }
 
         protected override void OnTrigger() {
-            this.Agent.RigidbodyCache.velocity = this.Agent.RigidbodyCache.velocity + Vector2.up * Speed;
-
             this.DoJump();
         }
 
         private void DoJump() {
+            this.Agent.RigidbodyCache.velocity = this.Agent.RigidbodyCache.velocity + Vector2.up * Speed;
+
             this.IsJumping = true;
+            this.dash.CancelDash();
         }
 
         private new void Update() {

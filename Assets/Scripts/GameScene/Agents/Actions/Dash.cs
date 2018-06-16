@@ -2,7 +2,7 @@
 
 namespace GameScene.Agents.Actions {
     /// <summary>
-    /// 地上ダッシュ
+    /// ダッシュ
     /// </summary>
     public class Dash : Action {
 
@@ -56,7 +56,7 @@ namespace GameScene.Agents.Actions {
             if (this.IsDashing) {
                 //  ダッシュ時間が終わるとダッシュ状態をやめる
                 if (this.dashingFrames > this.DashFrameLimit) {
-                    this.IsDashing = false;
+                    this.CancelDash();
                 }
                 this.dashingFrames++;
 
@@ -68,6 +68,11 @@ namespace GameScene.Agents.Actions {
 
             //  ダッシュ中は重力の影響を受けないようにする
             this.Agent.RigidbodyCache.gravityScale = this.IsDashing ? 0 : this.defaultGravityScale;
+        }
+
+        //  ダッシュをやめる
+        public void CancelDash() {
+            this.IsDashing = false;
         }
     }
 }

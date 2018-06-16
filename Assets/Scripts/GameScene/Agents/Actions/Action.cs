@@ -10,7 +10,7 @@ namespace GameScene.Agents.Actions {
 
         protected Agent Agent { get; private set; }
 
-        private void Awake() {
+        protected void Awake() {
             this.Agent = GetComponent<AgentReferer>().agent;
         }
 

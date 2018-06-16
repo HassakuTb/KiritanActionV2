@@ -5,12 +5,18 @@ namespace GameScene.Agents.Actions {
     /// <summary>
     /// ジャンプ後にジャンプキーを放すとその時点から落下を開始するやつ
     /// </summary>
+    [RequireComponent(typeof(Jump))]
     public class JumpRelease : Action {
 
-        public Jump JumpReference;
+        private Jump jump;
+
+        private new void Awake() {
+            base.Awake();
+            this.jump = GetComponent<Jump>();
+        }
 
         protected override bool Trigger() {
-            return Input.GetButtonUp("Jump") && this.JumpReference.IsJumping;
+            return Input.GetButtonUp("Jump") && this.jump.IsJumping;
         }
 
         protected override void OnTrigger() {
