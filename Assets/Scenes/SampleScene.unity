@@ -208,7 +208,6 @@ GameObject:
   - component: {fileID: 122797254}
   - component: {fileID: 122797252}
   - component: {fileID: 122797253}
-  - component: {fileID: 122797251}
   - component: {fileID: 122797255}
   - component: {fileID: 122797248}
   m_Layer: 0
@@ -271,19 +270,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &122797251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 122797247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5c2128961814b846a6c0cad0c5855d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsJumping: 0
-  JumpingLimitVelocity: 1
 --- !u!114 &122797252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,8 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b0f1a908137e443b87cde6877369d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accel: 0
-  VelocityLimit: 1
+  JumpReference: {fileID: 592275668}
 --- !u!114 &592275668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,6 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  JumpingLimitSpeed: 0
 --- !u!114 &592275670
 MonoBehaviour:
   m_ObjectHideFlags: 0

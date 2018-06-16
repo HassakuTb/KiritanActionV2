@@ -7,14 +7,10 @@ namespace GameScene.Agents.Actions {
     /// </summary>
     public class JumpRelease : Action {
 
-        private Agent.AgentDirection direction;
-
-        public float Accel;
-
-        public float VelocityLimit;
+        public Jump JumpReference;
 
         protected override bool Trigger() {
-            return Input.GetButtonUp("Jump") && this.Agent.JumpStatus.IsJumping;
+            return Input.GetButtonUp("Jump") && this.JumpReference.IsJumping;
         }
 
         protected override void OnTrigger() {

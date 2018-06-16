@@ -2,7 +2,7 @@
 
 namespace GameScene {
 
-    class SpriteTrailEmitter : MonoBehaviour {
+    public class SpriteTrailEmitter : MonoBehaviour {
         public SpriteRenderer Target;
         public Material Material;
         public int LifetimeFrames;
