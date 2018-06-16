@@ -7,7 +7,6 @@ namespace GameScene.Agents {
     [RequireComponent(typeof(JudgeGround))]
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(JumpStatus))]
-    [RequireComponent(typeof(DashStatus))]
     [RequireComponent(typeof(Animator))]
     public class Agent : MonoBehaviour {
 
@@ -28,7 +27,7 @@ namespace GameScene.Agents {
         private JudgeGround judgeGround;
 
         public JumpStatus JumpStatus { get; private set; }
-        public DashStatus DashStatus { get; private set; }
+        public Dash DashStatus { get; private set; }
         public Animator Animator { get; private set; }
 
         // Use this for initialization
@@ -36,7 +35,7 @@ namespace GameScene.Agents {
             this.judgeGround = GetComponent<JudgeGround>();
             this.RigidbodyCache = GetComponent<Rigidbody2D>();
             this.JumpStatus = GetComponent<JumpStatus>();
-            this.DashStatus = GetComponent<DashStatus>();
+            this.DashStatus = GetComponentInChildren<Dash>();
             this.Animator = GetComponent<Animator>();
         }
 
@@ -48,7 +47,7 @@ namespace GameScene.Agents {
             this.Animator.SetBool("IsGround", this.IsGround);
             this.Animator.SetFloat("VelocityY", this.RigidbodyCache.velocity.y);
             this.Animator.SetFloat("HorizontalInputAbs", Mathf.Abs(Input.GetAxis("Horizontal")));
-            this.Animator.SetInteger("DashingDirection", (int)this.DashStatus.Direction);
+            this.Animator.SetInteger("DashingDirection", (int)this.DashStatus.DashingDirection);
         }
 
         private void FixedUpdate() {

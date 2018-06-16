@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-using GameScene.Agents.AgentStatus;
+using GameScene.Agents.Actions;
 
 namespace GameScene.Agents {
     [RequireComponent(typeof(SpriteTrailEmitter))]
     public class TrailController : MonoBehaviour{
 
-        public DashStatus DashStatus;
+        public Dash Dash;
         private SpriteTrailEmitter emitter;
 
         private void Awake() {
@@ -13,7 +13,7 @@ namespace GameScene.Agents {
         }
 
         private void Update() {
-            this.emitter.enabled = DashStatus.IsDashing;
+            this.emitter.enabled = Dash.IsDashing;
         }
 
     }
