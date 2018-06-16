@@ -9,6 +9,7 @@ namespace GameScene.Agents.Actions {
         public float Speed;
         public float MinimumSpeed;
 
+        public int ConstantSpeedFrames = 5; //  ダッシュ開始後5Fは一定速度
         public int DashFrameLimit;
 
         private EightDirection inputDirection;
@@ -40,8 +41,13 @@ namespace GameScene.Agents.Actions {
                 if (this.Agent.IsGround) return;
             }
 
+            this.DoDash(this.inputDirection);
+        }
+
+        private void DoDash(EightDirection direction) {
+
             //  速度変化
-            Vector2 directionVector = this.inputDirection.ToVector2();
+            Vector2 directionVector = direction.ToVector2();
             this.Agent.RigidbodyCache.velocity = directionVector * this.Speed;
 
             //  ダッシュの開始
@@ -61,9 +67,10 @@ namespace GameScene.Agents.Actions {
                 this.dashingFrames++;
 
                 //  減速処理
-                //  TODO:   ダッシュ開始時に一定時間定数速度になるようにする
-                float expectedSpeed = this.Speed * (1 - this.dashingFrames / (float)this.DashFrameLimit);
-                if (expectedSpeed < MinimumSpeed) expectedSpeed = MinimumSpeed; //  TODO:   MinimumSpeedでダッシュ状態が続かないように変更する
+                float expectedSpeed = this.Speed;
+                if(this.dashingFrames > this.ConstantSpeedFrames) {
+                    expectedSpeed = this.MinimumSpeed + (this.Speed - this.MinimumSpeed)  * (1 - (this.dashingFrames - this.ConstantSpeedFrames) / (float)(this.DashFrameLimit - this.ConstantSpeedFrames));
+                }
                 this.Agent.RigidbodyCache.velocity = this.Agent.RigidbodyCache.velocity.normalized * expectedSpeed;
             }
 

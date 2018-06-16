@@ -812,9 +812,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672de5f6bed845245b3519b5fde5c09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
+  Speed: 16
   MinimumSpeed: 5
-  DashFrameLimit: 30
+  ConstantSpeedFrames: 5
+  DashFrameLimit: 20
 --- !u!114 &592275671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10eb5e2cfdd36ee4e9941a27421055b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accel: 1
+  Accel: 0.2
   VelocityLimit: 5
 --- !u!114 &592275674
 MonoBehaviour:
