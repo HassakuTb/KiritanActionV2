@@ -732,6 +732,7 @@ GameObject:
   - component: {fileID: 592275667}
   - component: {fileID: 592275666}
   - component: {fileID: 592275675}
+  - component: {fileID: 592275669}
   m_Layer: 0
   m_Name: Actions
   m_TagString: Untagged
@@ -789,6 +790,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   JumpingLimitSpeed: 0
+--- !u!114 &592275669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592275664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2697ea46bf78e242b0e34dee57b5701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &592275670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10eb5e2cfdd36ee4e9941a27421055b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Accel: 5
+  Accel: 1
   VelocityLimit: 5
 --- !u!114 &592275674
 MonoBehaviour:

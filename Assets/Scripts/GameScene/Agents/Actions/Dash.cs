@@ -61,6 +61,7 @@ namespace GameScene.Agents.Actions {
                 this.dashingFrames++;
 
                 //  減速処理
+                //  TODO:   ダッシュ開始時に一定時間定数速度になるようにする
                 float expectedSpeed = this.Speed * (1 - this.dashingFrames / (float)this.DashFrameLimit);
                 if (expectedSpeed < MinimumSpeed) expectedSpeed = MinimumSpeed; //  TODO:   MinimumSpeedでダッシュ状態が続かないように変更する
                 this.Agent.RigidbodyCache.velocity = this.Agent.RigidbodyCache.velocity.normalized * expectedSpeed;
