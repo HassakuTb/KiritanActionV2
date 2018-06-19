@@ -3,20 +3,32 @@ using GameScene.Agents.Actions;
 
 namespace GameScene.Agents {
 
+
+    /// <summary>
+    /// キャラの方向
+    /// </summary>
+    public enum AgentDirection {
+        Left = -1,
+        Right = 1,
+    }
+
+    public interface IAgent {
+        Rigidbody2D RigidbodyCache { get; }
+        bool IsGround { get; }
+        AgentDirection Direction { get;}
+        void SetDirection(AgentDirection dierction);
+        Jump JumpStatus { get; }
+        Dash DashStatus { get; }
+    }
+
     [RequireComponent(typeof(JudgeGround))]
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Animator))]
-    public class Agent : MonoBehaviour {
+    [RequireComponent(typeof(Dash))]
+    [RequireComponent(typeof(Jump))]
+    public class Agent : MonoBehaviour, IAgent {
 
-        /// <summary>
-        /// キャラの方向
-        /// </summary>
-        public enum AgentDirection {
-            Left = -1,
-            Right = 1,
-        }
-
-        public AgentDirection Direction = AgentDirection.Right;
+        public AgentDirection Direction{ get; private set; } = AgentDirection.Right;
 
         public Rigidbody2D RigidbodyCache { get; private set; }
 
@@ -32,8 +44,8 @@ namespace GameScene.Agents {
         void Awake() {
             this.judgeGround = GetComponent<JudgeGround>();
             this.RigidbodyCache = GetComponent<Rigidbody2D>();
-            this.JumpStatus = GetComponentInChildren<Jump>();
-            this.DashStatus = GetComponentInChildren<Dash>();
+            this.JumpStatus = GetComponent<Jump>();
+            this.DashStatus = GetComponent<Dash>();
             this.Animator = GetComponent<Animator>();
         }
 

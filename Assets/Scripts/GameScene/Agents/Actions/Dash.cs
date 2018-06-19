@@ -34,7 +34,7 @@ namespace GameScene.Agents.Actions {
 
         protected override void OnTrigger() {
             if (this.inputDirection == EightDirection.None) {
-                this.inputDirection = this.Agent.Direction == Agent.AgentDirection.Right ? EightDirection.Right : EightDirection.Left;
+                this.inputDirection = this.Agent.Direction == AgentDirection.Right ? EightDirection.Right : EightDirection.Left;
             }
             //  地上で下方向ダッシュはできなくする
             if(this.inputDirection == EightDirection.Down || this.inputDirection == EightDirection.DownLeft || this.inputDirection == EightDirection.DownRight) {

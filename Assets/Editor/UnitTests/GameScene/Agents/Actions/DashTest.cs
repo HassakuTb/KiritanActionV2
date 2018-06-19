@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using NUnit.Framework;
-
-using GameScene.Referers;
+using NSubstitute;
+using System.Reflection;
 
 namespace GameScene.Agents.Actions.Test {
 
@@ -10,25 +10,24 @@ namespace GameScene.Agents.Actions.Test {
         GameObject actionObj;
 
         Dash dash;
-        AgentReferer agentReferer;
-        Agent agent;
+        Rigidbody2D rigidbody;
+        IAgent agent;
 
         [SetUp]
         public void SetUp() {
-            agent = new GameObject("Agent", typeof(Agent)).GetComponent<Agent>();
-            actionObj = new GameObject("dash", typeof(Dash), typeof(AgentReferer));
+            agent = Substitute.For<IAgent>();
+            actionObj = new GameObject("dash", typeof(Dash));
+            rigidbody = new GameObject("rigidbody", typeof(Rigidbody2D)).GetComponent<Rigidbody2D>();
             dash = actionObj.GetComponent<Dash>();
-            agentReferer = actionObj.GetComponent<AgentReferer>();
-            agentReferer.agent = agent;
+            agent.RigidbodyCache.Returns(rigidbody);
 
             dash.Speed = 100;
             dash.MinimumSpeed = 10;
             dash.ConstantSpeedFrames = 5;
             dash.DashFrameLimit = 10;
 
-            agent.GetType().InvokeMember("Awake", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.InvokeMethod, null, agent, null);
-            dash.GetType().InvokeMember("Awake", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.InvokeMethod, null, dash, null);
-
+            PropertyInfo AgentProperty = dash.GetType().BaseType.GetProperty("Agent", BindingFlags.Instance | BindingFlags.NonPublic);
+            AgentProperty.SetValue(dash, agent, null);
         }
 
         [Test]

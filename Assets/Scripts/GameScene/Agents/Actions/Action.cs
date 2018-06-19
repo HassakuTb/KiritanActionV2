@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
-using GameScene.Referers;
 
 namespace GameScene.Agents.Actions {
 
-    [RequireComponent(typeof(AgentReferer))]
+    [RequireComponent(typeof(IAgent))]
     public abstract class Action : MonoBehaviour {
 
         private bool isTriggeredAtUpdate;
 
-        protected Agent Agent { get; private set; }
+        protected IAgent Agent { get; private set; }
 
         protected void Awake() {
-            this.Agent = GetComponent<AgentReferer>().agent;
+            this.Agent = GetComponent<IAgent>();
         }
 
         public void Update() {
